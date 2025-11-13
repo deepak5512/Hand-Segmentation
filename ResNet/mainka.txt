@@ -1,0 +1,320 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS E:\cv> python --version
+Python 3.12.6
+PS E:\cv> py -3.10 -V
+Python 3.10.0
+PS E:\cv> py -3.10 -m venv .venv
+PS E:\cv> python --version
+Python 3.12.6
+PS E:\cv> .\.venv\Scripts\Activate.ps1\
+.\.venv\Scripts\Activate.ps1\ : The term '.\.venv\Scripts\Activate.ps1\' is not recognized as the name of a cmdlet,
+function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ .\.venv\Scripts\Activate.ps1\
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (.\.venv\Scripts\Activate.ps1\:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS E:\cv> LS
+
+
+    Directory: E:\cv
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         09-Nov-25  12:30 AM                .venv
+d-----         09-Nov-25  12:18 AM                data
+d-----         09-Nov-25  12:21 AM                helper
+d-----         09-Nov-25  12:21 AM                src
+-a----         08-Nov-25   1:42 PM            345 main.py
+-a----         08-Nov-25   3:39 PM            902 requirements.txt
+
+
+PS E:\cv> cd .venv
+PS E:\cv\.venv> ls
+
+
+    Directory: E:\cv\.venv
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         09-Nov-25  12:30 AM                Include
+d-----         09-Nov-25  12:30 AM                Lib
+d-----         09-Nov-25  12:30 AM                Scripts
+-a----         09-Nov-25  12:30 AM            119 pyvenv.cfg
+
+
+PS E:\cv\.venv> cd Scripts
+PS E:\cv\.venv\Scripts> ls
+
+
+    Directory: E:\cv\.venv\Scripts
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----         09-Nov-25  12:30 AM           2053 activate
+-a----         09-Nov-25  12:30 AM            982 activate.bat
+-a----         09-Nov-25  12:30 AM          19611 Activate.ps1
+-a----         09-Nov-25  12:30 AM            393 deactivate.bat
+-a----         09-Nov-25  12:30 AM         106341 pip.exe
+-a----         09-Nov-25  12:30 AM         106341 pip3.10.exe
+-a----         09-Nov-25  12:30 AM         106341 pip3.exe
+-a----         09-Nov-25  12:30 AM         242920 python.exe
+-a----         09-Nov-25  12:30 AM         232688 pythonw.exe
+
+
+PS E:\cv\.venv\Scripts> ./activate.ps1
+(.venv) PS E:\cv\.venv\Scripts> python --version
+Python 3.10.0
+(.venv) PS E:\cv\.venv\Scripts> python -m pip install --upgrade pip setuptools wheel
+Requirement already satisfied: pip in e:\cv\.venv\lib\site-packages (21.2.3)
+Collecting pip
+  Downloading pip-25.3-py3-none-any.whl (1.8 MB)
+     |████████████████████████████████| 1.8 MB 2.2 MB/s
+Requirement already satisfied: setuptools in e:\cv\.venv\lib\site-packages (57.4.0)
+Collecting setuptools
+  Downloading setuptools-80.9.0-py3-none-any.whl (1.2 MB)
+     |████████████████████████████████| 1.2 MB ...
+Collecting wheel
+  Using cached wheel-0.45.1-py3-none-any.whl (72 kB)
+Installing collected packages: wheel, setuptools, pip
+  Attempting uninstall: setuptools
+    Found existing installation: setuptools 57.4.0
+    Uninstalling setuptools-57.4.0:
+      Successfully uninstalled setuptools-57.4.0
+  Attempting uninstall: pip
+    Found existing installation: pip 21.2.3
+    Uninstalling pip-21.2.3:
+      Successfully uninstalled pip-21.2.3
+Successfully installed pip-25.3 setuptools-80.9.0 wheel-0.45.1
+(.venv) PS E:\cv\.venv\Scripts> pip install --index-url https://download.pytorch.org/whl/cu124 torch torchvision
+Looking in indexes: https://download.pytorch.org/whl/cu124
+Collecting torch
+  Downloading https://download.pytorch.org/whl/cu124/torch-2.6.0%2Bcu124-cp310-cp310-win_amd64.whl.metadata (28 kB)
+Collecting torchvision
+  Downloading https://download.pytorch.org/whl/cu124/torchvision-0.21.0%2Bcu124-cp310-cp310-win_amd64.whl.metadata (6.3 kB)
+Collecting filelock (from torch)
+  Downloading https://download.pytorch.org/whl/filelock-3.19.1-py3-none-any.whl.metadata (2.1 kB)
+Collecting typing-extensions>=4.10.0 (from torch)
+  Downloading https://download.pytorch.org/whl/typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting networkx (from torch)
+  Downloading https://download.pytorch.org/whl/networkx-3.5-py3-none-any.whl.metadata (6.3 kB)
+Collecting jinja2 (from torch)
+  Downloading https://download.pytorch.org/whl/jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting fsspec (from torch)
+  Downloading https://download.pytorch.org/whl/fsspec-2025.9.0-py3-none-any.whl.metadata (10 kB)
+Collecting sympy==1.13.1 (from torch)
+  Using cached https://download.pytorch.org/whl/sympy-1.13.1-py3-none-any.whl (6.2 MB)
+Collecting mpmath<1.4,>=1.1.0 (from sympy==1.13.1->torch)
+  Downloading https://download.pytorch.org/whl/mpmath-1.3.0-py3-none-any.whl (536 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 8.8 MB/s  0:00:00
+Collecting numpy (from torchvision)
+  Downloading https://download.pytorch.org/whl/numpy-2.1.2-cp310-cp310-win_amd64.whl.metadata (59 kB)
+Collecting pillow!=8.3.*,>=5.3.0 (from torchvision)
+  Downloading https://download.pytorch.org/whl/pillow-11.3.0-cp310-cp310-win_amd64.whl.metadata (9.2 kB)
+Collecting MarkupSafe>=2.0 (from jinja2->torch)
+  Downloading https://download.pytorch.org/whl/MarkupSafe-2.1.5-cp310-cp310-win_amd64.whl (17 kB)
+INFO: pip is looking at multiple versions of networkx to determine which version is compatible with other requirements. This could take a while.
+Collecting networkx (from torch)
+  Using cached https://download.pytorch.org/whl/networkx-3.3-py3-none-any.whl.metadata (5.1 kB)
+Downloading https://download.pytorch.org/whl/cu124/torch-2.6.0%2Bcu124-cp310-cp310-win_amd64.whl (2532.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.5/2.5 GB 46.3 MB/s  0:00:28
+Downloading https://download.pytorch.org/whl/cu124/torchvision-0.21.0%2Bcu124-cp310-cp310-win_amd64.whl (6.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.1/6.1 MB 93.3 MB/s  0:00:00
+Downloading https://download.pytorch.org/whl/pillow-11.3.0-cp310-cp310-win_amd64.whl (7.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.0/7.0 MB 53.8 MB/s  0:00:00
+Downloading https://download.pytorch.org/whl/typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+Downloading https://download.pytorch.org/whl/filelock-3.19.1-py3-none-any.whl (15 kB)
+Downloading https://download.pytorch.org/whl/fsspec-2025.9.0-py3-none-any.whl (199 kB)
+Downloading https://download.pytorch.org/whl/jinja2-3.1.6-py3-none-any.whl (134 kB)
+Using cached https://download.pytorch.org/whl/networkx-3.3-py3-none-any.whl (1.7 MB)
+Downloading https://download.pytorch.org/whl/numpy-2.1.2-cp310-cp310-win_amd64.whl (12.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.9/12.9 MB 62.1 MB/s  0:00:00
+Installing collected packages: mpmath, typing-extensions, sympy, pillow, numpy, networkx, MarkupSafe, fsspec, filelock, jinja2, torch, torchvision
+Successfully installed MarkupSafe-2.1.5 filelock-3.19.1 fsspec-2025.9.0 jinja2-3.1.6 mpmath-1.3.0 networkx-3.3 numpy-2.1.2 pillow-11.3.0 sympy-1.13.1 torch-2.6.0+cu124 torchvision-0.21.0+cu124 typing-extensions-4.15.0
+(.venv) PS E:\cv\.venv\Scripts> cd ..
+(.venv) PS E:\cv\.venv> cd ..
+(.venv) PS E:\cv> ls
+
+
+    Directory: E:\cv
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         09-Nov-25  12:34 AM                .venv
+d-----         09-Nov-25  12:18 AM                data
+d-----         09-Nov-25  12:21 AM                helper
+d-----         09-Nov-25  12:21 AM                src
+-a----         08-Nov-25   1:42 PM            345 main.py
+-a----         08-Nov-25   3:39 PM            902 requirements.txt
+
+
+(.venv) PS E:\cv> ls src
+
+
+    Directory: E:\cv\src
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         09-Nov-25  12:21 AM                __pycache__
+-a----         08-Nov-25   1:42 PM           1190 dataset.py
+-a----         08-Nov-25   1:42 PM            946 infer.py
+-a----         08-Nov-25   1:42 PM            589 metrics.py
+-a----         08-Nov-25   1:42 PM            739 realtime.py
+-a----         08-Nov-25   3:32 PM           2017 train.py
+-a----         08-Nov-25   1:38 PM              0 utils.py
+
+
+(.venv) PS E:\cv> ls data
+
+
+    Directory: E:\cv\data
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         09-Nov-25  12:18 AM                egohands
+d-----         09-Nov-25  12:20 AM                gtea
+
+
+(.venv) PS E:\cv> pip install opencv-python pillow numpy tqdm
+Collecting opencv-python
+  Using cached opencv_python-4.12.0.88-cp37-abi3-win_amd64.whl.metadata (19 kB)
+Requirement already satisfied: pillow in e:\cv\.venv\lib\site-packages (11.3.0)
+Requirement already satisfied: numpy in e:\cv\.venv\lib\site-packages (2.1.2)
+Collecting tqdm
+  Using cached tqdm-4.67.1-py3-none-any.whl.metadata (57 kB)
+Collecting colorama (from tqdm)
+  Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Using cached opencv_python-4.12.0.88-cp37-abi3-win_amd64.whl (39.0 MB)
+Using cached tqdm-4.67.1-py3-none-any.whl (78 kB)
+Using cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Installing collected packages: opencv-python, colorama, tqdm
+Successfully installed colorama-0.4.6 opencv-python-4.12.0.88 tqdm-4.67.1
+(.venv) PS E:\cv> ls
+
+
+    Directory: E:\cv
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         09-Nov-25  12:34 AM                .venv
+d-----         09-Nov-25  12:18 AM                data
+d-----         09-Nov-25  12:21 AM                helper
+d-----         09-Nov-25  12:21 AM                src
+-a----         08-Nov-25   1:42 PM            345 main.py
+-a----         08-Nov-25   3:39 PM            902 requirements.txt
+
+
+(.venv) PS E:\cv> python main.py
+1. Train model
+2. Run real-time hand segmentation
+Enter choice: 1
+E:\cv\.venv\lib\site-packages\torchvision\models\_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+E:\cv\.venv\lib\site-packages\torchvision\models\_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=DeepLabV3_ResNet50_Weights.COCO_WITH_VOC_LABELS_V1`. You can also use `weights=DeepLabV3_ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Downloading: "https://download.pytorch.org/models/deeplabv3_resnet50_coco-cd0a2569.pth" to C:\Users\kanha/.cache\torch\hub\checkpoints\deeplabv3_resnet50_coco-cd0a2569.pth
+100%|███████████████████████████████████████████████████████████████████████████████| 161M/161M [00:01<00:00, 88.6MB/s]
+Epoch 1/10: 100%|██████████████████████████████████████████████████████████████████| 1200/1200 [03:40<00:00,  5.45it/s]
+Loss: 0.0708, IOU: 0.8682, Acc: 0.9795
+Traceback (most recent call last):
+  File "E:\cv\main.py", line 10, in <module>
+    train_model(epochs=10)
+  File "E:\cv\src\train.py", line 52, in train_model
+    torch.save(model.state_dict(), f"checkpoints/model_epoch_{epoch+1}.pth")
+  File "E:\cv\.venv\lib\site-packages\torch\serialization.py", line 943, in save
+    with _open_zipfile_writer(f) as opened_zipfile:
+  File "E:\cv\.venv\lib\site-packages\torch\serialization.py", line 810, in _open_zipfile_writer
+    return container(name_or_buffer)
+  File "E:\cv\.venv\lib\site-packages\torch\serialization.py", line 781, in __init__
+    super().__init__(torch._C.PyTorchFileWriter(self.name, _compute_crc32))
+RuntimeError: Parent directory checkpoints does not exist.
+(.venv) PS E:\cv> ^C
+(.venv) PS E:\cv> mkdir checkpoints
+
+
+    Directory: E:\cv
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         09-Nov-25  12:48 AM                checkpoints
+
+
+(.venv) PS E:\cv> ls
+
+
+    Directory: E:\cv
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         09-Nov-25  12:34 AM                .venv
+d-----         09-Nov-25  12:48 AM                checkpoints
+d-----         09-Nov-25  12:18 AM                data
+d-----         09-Nov-25  12:21 AM                helper
+d-----         09-Nov-25  12:21 AM                src
+-a----         08-Nov-25   1:42 PM            345 main.py
+-a----         08-Nov-25   3:39 PM            902 requirements.txt
+
+
+(.venv) PS E:\cv> python main.py
+1. Train model
+2. Run real-time hand segmentation
+Enter choice: 1
+E:\cv\.venv\lib\site-packages\torchvision\models\_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+E:\cv\.venv\lib\site-packages\torchvision\models\_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=DeepLabV3_ResNet50_Weights.COCO_WITH_VOC_LABELS_V1`. You can also use `weights=DeepLabV3_ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Epoch 1/10:   0%|                                                                             | 0/1200 [00:12<?, ?it/s]
+Traceback (most recent call last):
+  File "E:\cv\main.py", line 10, in <module>
+    train_model(epochs=10)
+  File "E:\cv\src\train.py", line 49, in train_model
+    loss = criterion(outputs, masks)
+  File "E:\cv\.venv\lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "E:\cv\.venv\lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "E:\cv\.venv\lib\site-packages\torch\nn\modules\loss.py", line 1295, in forward
+    return F.cross_entropy(
+  File "E:\cv\.venv\lib\site-packages\torch\nn\functional.py", line 3494, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(
+RuntimeError: only batches of spatial targets supported (3D tensors) but got targets of size: : [4, 1, 256, 256]
+(.venv) PS E:\cv> python main.py
+1. Train model
+2. Run real-time hand segmentation
+Enter choice: 1
+Epoch 1/10: 100%|██████████████████████████████████████████████████████████████████| 1200/1200 [03:59<00:00,  5.02it/s]
+Loss: 0.0785, IOU: 0.8665, Acc: 0.9781, Prec: 0.8372, Rec: 0.8703, F1: 0.8534
+Epoch 2/10: 100%|██████████████████████████████████████████████████████████████████| 1200/1200 [04:00<00:00,  4.99it/s]
+Loss: 0.0384, IOU: 0.8940, Acc: 0.9842, Prec: 0.8891, Rec: 0.8966, F1: 0.8928
+Epoch 3/10: 100%|██████████████████████████████████████████████████████████████████| 1200/1200 [04:01<00:00,  4.98it/s]
+Loss: 0.0344, IOU: 0.9009, Acc: 0.9854, Prec: 0.8971, Rec: 0.9042, F1: 0.9006
+Epoch 4/10: 100%|██████████████████████████████████████████████████████████████████| 1200/1200 [04:21<00:00,  4.59it/s]
+Loss: 0.0315, IOU: 0.9066, Acc: 0.9863, Prec: 0.9035, Rec: 0.9111, F1: 0.9072
+Epoch 5/10: 100%|██████████████████████████████████████████████████████████████████| 1200/1200 [05:18<00:00,  3.77it/s]
+Loss: 0.0305, IOU: 0.9089, Acc: 0.9868, Prec: 0.9073, Rec: 0.9129, F1: 0.9101
+Epoch 6/10: 100%|██████████████████████████████████████████████████████████████████| 1200/1200 [05:03<00:00,  3.96it/s]
+Loss: 0.0289, IOU: 0.9129, Acc: 0.9874, Prec: 0.9111, Rec: 0.9172, F1: 0.9142
+Epoch 7/10: 100%|██████████████████████████████████████████████████████████████████| 1200/1200 [08:16<00:00,  2.42it/s]
+Loss: 0.0287, IOU: 0.9137, Acc: 0.9875, Prec: 0.9121, Rec: 0.9181, F1: 0.9151
+Epoch 8/10: 100%|██████████████████████████████████████████████████████████████████| 1200/1200 [08:59<00:00,  2.22it/s]
+Loss: 0.0254, IOU: 0.9213, Acc: 0.9887, Prec: 0.9211, Rec: 0.9258, F1: 0.9234
+Epoch 9/10: 100%|██████████████████████████████████████████████████████████████████| 1200/1200 [08:58<00:00,  2.23it/s]
+Loss: 0.0256, IOU: 0.9213, Acc: 0.9887, Prec: 0.9217, Rec: 0.9248, F1: 0.9233
+Epoch 10/10: 100%|█████████████████████████████████████████████████████████████████| 1200/1200 [09:08<00:00,  2.19it/s]
+Loss: 0.0261, IOU: 0.9200, Acc: 0.9885, Prec: 0.9202, Rec: 0.9236, F1: 0.9219
+(.venv) PS E:\cv>
