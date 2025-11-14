@@ -1,1 +1,1 @@
-# Hand Segmentation in the Wild
+# Hand Segmentation
